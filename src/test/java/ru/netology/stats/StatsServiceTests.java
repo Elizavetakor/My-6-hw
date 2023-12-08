@@ -5,11 +5,10 @@ import org.junit.jupiter.api.Test;
 
 public class StatsServiceTests {
     @Test
-
-    public void findMinMonth(){
+    public void findMinMonth() {
 
         StatsService service = new StatsService();
-        int[] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedMonth = 8;
         int actualMonth = (int) service.getMinMonth(sales);
 
@@ -17,10 +16,10 @@ public class StatsServiceTests {
     }
 
     @Test
-    public void findSumSales(){
+    public void findSumSales() {
 
         StatsService service = new StatsService();
-        int[] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedSum = 180;
         int actualSum = (int) service.getSumSales(sales);
 
@@ -28,10 +27,10 @@ public class StatsServiceTests {
     }
 
     @Test
-    public void findAverageAmount(){
+    public void findAverageAmount() {
 
         StatsService service = new StatsService();
-        int[] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedAverage = 15;
         int actualAverage = (int) service.getAverageAmount(sales);
 
@@ -39,24 +38,35 @@ public class StatsServiceTests {
     }
 
     @Test
-    public void findMaxMonth(){
+    public void findMaxMonth() {
 
         StatsService service = new StatsService();
-        int[] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
-        int expectedMaxMonth = 6;
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expectedMaxMonth = 7;
         int actualMaxMonth = (int) service.getMaxMonth(sales);
 
         Assertions.assertEquals(expectedMaxMonth, actualMaxMonth);
     }
 
     @Test
-    public void findMinAverMonths(){
+    public void findSalesBelowAverage() {
 
         StatsService service = new StatsService();
-        int[] sales = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
-        int expectedMinAver = 5;
-        int actualMinAver = (int) service.getMinAverage(sales);
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expectedSalesBelowAverage = 5;
+        int actualSalesBelowAverage = (int) service.salesBelowAverage(sales);
 
-        Assertions.assertEquals(expectedMinAver, actualMinAver);
+        Assertions.assertEquals(expectedSalesBelowAverage, actualSalesBelowAverage);
+    }
+
+    @Test
+    public void findSalesAboveAverage() {
+
+        StatsService service = new StatsService();
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expectedSalesAboveAverage = 5;
+        int actualSalesAboveAverage = (int) service.salesAboveAverage(sales);
+
+        Assertions.assertEquals(expectedSalesAboveAverage, actualSalesAboveAverage);
     }
 }
